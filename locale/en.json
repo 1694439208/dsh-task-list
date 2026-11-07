@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Task list",
+    "description": "A cross-workspace conversation list that retains completed tasks, highlights only new unread completions in green, and opens any conversation in one click."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "@kaifeise/dsh-task-list",
+  "version": "1.3.1",
+  "description": "A DeepSeek Harness task list that keeps completed conversations and highlights new unread completions across workspaces.",
+  "type": "module",
+  "license": "MIT",
+  "author": "kaifeise",
+  "repository": { "type": "git", "url": "git+https://github.com/1694439208/dsh-task-list.git" },
+  "homepage": "https://github.com/1694439208/dsh-task-list#readme",
+  "bugs": { "url": "https://github.com/1694439208/dsh-task-list/issues" },
+  "keywords": ["dsh", "dsh-plugin", "deepseek-harness", "conversation", "task-list", "workspace", "unread"],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": ["index.js", "client.js", "cordis.patch.yml", "locale/*.json", "icon.svg", "LICENSE", "README.md", "README.en.md", "CHANGELOG.md", "src/*.mjs", "build.mjs", "test/*.mjs"],
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test test/model.test.mjs"
+  },
+  "dependencies": { "zod": "4.4.3" },
+  "engines": { "dsh": ">=0.2.1-rc.5 <0.2.2-0 || >=0.2.2-rc.1 <0.2.3-0" },
+  "publishConfig": { "access": "public", "registry": "https://registry.npmjs.org/" },
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": ["@deepseek-ai/dsh-client-ui-workspace", "@deepseek-ai/dsh-client-ui-session", "@deepseek-ai/dsh-client-locale"]
+    }
+  }
+}
